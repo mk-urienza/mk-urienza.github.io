@@ -1,1 +1,23 @@
 # mk-urienza.github.io
+
+<h2>Contact</h2>
+
+            <p>
+                <a href="mailto:YOUR-EMAIL">Email</a>
+            </p>
+
+            <p>
+                <a href="YOUR-LINKEDIN-URL" target="_blank">LinkedIn</a>
+            </p>
+
+            <p>
+                <a href="https://github.com/mk-urienza" target="_blank">GitHub</a>
+            </p>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
