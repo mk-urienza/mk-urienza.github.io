@@ -1,44 +1,58 @@
-// ============================================
+// ==========================================================
 // DARK MODE
-// ============================================
+// ==========================================================
 
-const themeToggle = document.getElementById("themeToggle");
+const themeButton = document.getElementById("themeButton");
+
+const storedTheme = localStorage.getItem("portfolio-theme");
+
+const systemPrefersDark =
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 
-// Check whether the user previously selected dark mode
-const savedTheme = localStorage.getItem("theme");
+// Load saved preference.
+// If none exists, use the visitor's system theme.
 
+if (
+    storedTheme === "dark" ||
+    (!storedTheme && systemPrefersDark)
+) {
 
-if (savedTheme === "dark") {
+    document.body.classList.add("dark");
 
-    document.body.classList.add("dark-mode");
-
-    themeToggle.textContent = "☀";
+    themeButton.textContent = "☀";
 
 } else {
 
-    themeToggle.textContent = "◐";
+    document.body.classList.remove("dark");
+
+    themeButton.textContent = "☾";
 
 }
 
 
-// Toggle dark mode
-themeToggle.addEventListener("click", () => {
+themeButton.addEventListener("click", () => {
 
-    document.body.classList.toggle("dark-mode");
+    document.body.classList.toggle("dark");
 
 
-    if (document.body.classList.contains("dark-mode")) {
+    if (document.body.classList.contains("dark")) {
 
-        localStorage.setItem("theme", "dark");
+        localStorage.setItem(
+            "portfolio-theme",
+            "dark"
+        );
 
-        themeToggle.textContent = "☀";
+        themeButton.textContent = "☀";
 
     } else {
 
-        localStorage.setItem("theme", "light");
+        localStorage.setItem(
+            "portfolio-theme",
+            "light"
+        );
 
-        themeToggle.textContent = "◐";
+        themeButton.textContent = "☾";
 
     }
 
@@ -46,30 +60,65 @@ themeToggle.addEventListener("click", () => {
 
 
 
-// ============================================
-// MOBILE MENU
-// ============================================
+// ==========================================================
+// MOBILE NAVIGATION
+// ==========================================================
 
-const menuToggle = document.getElementById("menuToggle");
+const menuButton =
+    document.getElementById("menuButton");
 
-const navLinks = document.getElementById("navLinks");
+const navLinks =
+    document.getElementById("navLinks");
 
 
-menuToggle.addEventListener("click", () => {
+menuButton.addEventListener("click", () => {
 
-    navLinks.classList.toggle("active");
+    const opened =
+        navLinks.classList.toggle("open");
+
+    menuButton.setAttribute(
+        "aria-expanded",
+        opened
+    );
 
 });
 
 
 
-// Close mobile menu after clicking a link
-document.querySelectorAll(".nav-links a").forEach(link => {
+// Close menu when navigation link is clicked
 
-    link.addEventListener("click", () => {
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
 
-        navLinks.classList.remove("active");
+        link.addEventListener("click", () => {
+
+            navLinks.classList.remove("open");
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        });
 
     });
+
+
+
+// Close mobile menu if window becomes desktop sized
+
+window.addEventListener("resize", () => {
+
+    if (window.innerWidth > 780) {
+
+        navLinks.classList.remove("open");
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    }
 
 });
