@@ -6,10 +6,12 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-        content="Engineering portfolio of MK Urienza, an electrical engineer focused on integrated circuit design, semiconductor engineering, and embedded systems.">
+    <meta
+        name="description"
+        content="Engineering portfolio of MK Urienza, UC Davis electrical engineering graduate and M.S. student focused on integrated circuit design, semiconductor engineering, and embedded systems."
+    >
 
-    <title>MK Urienza | Electrical Engineering Portfolio</title>
+    <title>MK Urienza | Electrical Engineering</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,68 +19,55 @@
 
 <body>
 
-    <!-- ==============================
+    <!-- ==================================================
          NAVIGATION
-    =============================== -->
+    =================================================== -->
 
-    <header>
+    <header class="site-header">
 
-        <nav>
+        <nav class="navbar">
 
-            <a href="#home" class="logo">
+            <a class="logo" href="#home">
                 MK Urienza
             </a>
 
 
-            <div class="nav-actions">
+            <div class="nav-right">
 
                 <ul class="nav-links" id="navLinks">
 
-                    <li>
-                        <a href="#about">About</a>
-                    </li>
+                    <li><a href="#about">About</a></li>
 
-                    <li>
-                        <a href="#projects">Projects</a>
-                    </li>
+                    <li><a href="#research">Research</a></li>
 
-                    <li>
-                        <a href="#skills">Skills</a>
-                    </li>
+                    <li><a href="#projects">Projects</a></li>
 
-                    <li>
-                        <a href="#experience">Experience</a>
-                    </li>
+                    <li><a href="#skills">Skills</a></li>
 
-                    <li>
-                        <a href="#education">Education</a>
-                    </li>
+                    <li><a href="#experience">Experience</a></li>
 
-                    <li>
-                        <a href="#contact">Contact</a>
-                    </li>
+                    <li><a href="#education">Education</a></li>
+
+                    <li><a href="#contact">Contact</a></li>
 
                 </ul>
 
 
-                <!-- DARK MODE BUTTON -->
-
                 <button
-                    class="theme-toggle"
-                    id="themeToggle"
-                    aria-label="Toggle dark mode">
-
-                    ◐
-
+                    class="theme-button"
+                    id="themeButton"
+                    aria-label="Toggle dark mode"
+                >
+                    ☾
                 </button>
 
 
-                <!-- MOBILE MENU BUTTON -->
-
                 <button
-                    class="menu-toggle"
-                    id="menuToggle"
-                    aria-label="Open navigation menu">
+                    class="menu-button"
+                    id="menuButton"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                >
 
                     <span></span>
                     <span></span>
@@ -97,17 +86,16 @@
     <main>
 
 
-        <!-- ==============================
+        <!-- ==================================================
              HERO
-        =============================== -->
+        =================================================== -->
 
         <section id="home" class="hero">
 
-            <div class="hero-content">
-
+            <div class="hero-copy">
 
                 <p class="eyebrow">
-                    ELECTRICAL ENGINEERING
+                    ELECTRICAL & COMPUTER ENGINEERING
                 </p>
 
 
@@ -117,57 +105,47 @@
 
 
                 <h2>
-
-                    Integrated Circuit Design
-
+                    IC Design
                     <span>•</span>
-
                     Semiconductor Engineering
-
                     <span>•</span>
-
                     Embedded Systems
-
                 </h2>
 
 
                 <p class="hero-description">
 
                     Electrical engineering graduate from the
-                    University of California, Davis, currently
-                    pursuing an M.S. in Electrical Engineering
-                    with a focus on integrated circuits.
+                    University of California, Davis, currently pursuing
+                    an M.S. in Electrical and Computer Engineering with
+                    a focus on integrated circuits.
 
                 </p>
 
 
                 <p class="hero-description">
 
-                    My work spans transistor-level circuit design,
-                    semiconductor fabrication, PCB development,
-                    digital hardware, and autonomous embedded systems.
+                    My work spans transistor-level IC design,
+                    semiconductor fabrication, FPGA development,
+                    custom PCB design, embedded control systems,
+                    computer vision, and hardware-oriented research.
 
                 </p>
 
 
-                <div class="hero-buttons">
+                <div class="hero-actions">
 
-                    <a
-                        href="#projects"
-                        class="button primary-button">
-
+                    <a class="button primary-button" href="#projects">
                         View Projects
-
                     </a>
 
 
                     <a
+                        class="button secondary-button"
                         href="resume.pdf"
                         target="_blank"
-                        class="button secondary-button">
-
+                    >
                         View Resume
-
                     </a>
 
                 </div>
@@ -175,7 +153,7 @@
 
                 <div class="availability">
 
-                    <span class="availability-dot"></span>
+                    <span class="status-dot"></span>
 
                     Seeking full-time engineering and paid research opportunities
 
@@ -184,15 +162,30 @@
             </div>
 
 
-            <div class="hero-decoration">
 
-                <div class="chip">
+            <div class="hero-visual" aria-hidden="true">
 
-                    <div class="chip-inner">
+                <div class="processor">
 
+                    <div class="processor-core">
                         <span>IC</span>
-
                     </div>
+
+                    <div class="pin pin-top-1"></div>
+                    <div class="pin pin-top-2"></div>
+                    <div class="pin pin-top-3"></div>
+
+                    <div class="pin pin-bottom-1"></div>
+                    <div class="pin pin-bottom-2"></div>
+                    <div class="pin pin-bottom-3"></div>
+
+                    <div class="pin pin-left-1"></div>
+                    <div class="pin pin-left-2"></div>
+                    <div class="pin pin-left-3"></div>
+
+                    <div class="pin pin-right-1"></div>
+                    <div class="pin pin-right-2"></div>
+                    <div class="pin pin-right-3"></div>
 
                 </div>
 
@@ -202,15 +195,15 @@
 
 
 
-        <!-- ==============================
+        <!-- ==================================================
              ABOUT
-        =============================== -->
+        =================================================== -->
 
         <section id="about">
 
-            <div class="section-title">
+            <div class="section-heading">
 
-                <p>01</p>
+                <p class="section-number">01</p>
 
                 <h2>About Me</h2>
 
@@ -219,86 +212,103 @@
 
             <div class="about-grid">
 
-
-                <div class="about-content">
+                <div class="about-text">
 
                     <p>
 
-                        I earned my Bachelor of Science in Electrical
-                        Engineering from the University of California,
-                        Davis and am currently continuing my education
-                        there as an M.S. student with a focus on
-                        integrated circuits.
+                        I earned my B.S. in Electrical Engineering from
+                        the University of California, Davis and am now
+                        pursuing an M.S. in Electrical and Computer
+                        Engineering at UC Davis.
 
                     </p>
 
 
                     <p>
 
-                        My primary technical interests include integrated
-                        circuit design, semiconductor engineering, and
-                        embedded systems. I am especially interested in
-                        understanding engineering across multiple levels,
-                        from semiconductor device behavior and
-                        transistor-level circuits to complete hardware
-                        systems.
+                        My primary interests lie in integrated circuit
+                        design and semiconductor engineering, particularly
+                        the relationship between device physics,
+                        transistor-level behavior, physical fabrication,
+                        digital systems, and larger hardware platforms.
 
                     </p>
 
 
                     <p>
 
-                        My academic projects have given me experience in
-                        CMOS design, custom PCB development, digital
-                        hardware, autonomous control, cleanroom
-                        fabrication, and semiconductor device
-                        characterization.
+                        My projects have taken me from designing and
+                        verifying CMOS circuits in Cadence Virtuoso to
+                        fabricating semiconductor devices in a cleanroom,
+                        programming autonomous vehicles, developing FPGA
+                        systems, and designing custom PCBs.
 
                     </p>
 
 
                     <p>
 
-                        I am currently seeking full-time engineering
-                        opportunities that build on my completed B.S.
-                        degree, as well as paid research opportunities
-                        related to integrated circuits and semiconductor
-                        technology.
+                        I enjoy engineering problems that require both
+                        theoretical understanding and physical
+                        implementation, especially when a project moves
+                        from an initial schematic or algorithm into a
+                        working hardware system.
 
                     </p>
 
                 </div>
 
 
-                <aside class="focus-panel">
+                <aside class="profile-card">
 
-                    <p class="panel-label">
-                        PRIMARY INTERESTS
+                    <p class="card-label">
+                        CURRENT FOCUS
                     </p>
 
-                    <ul>
 
-                        <li>
-                            Integrated Circuit Design
-                        </li>
+                    <div class="profile-item">
 
-                        <li>
-                            Semiconductor Engineering
-                        </li>
+                        <span>Primary Field</span>
 
-                        <li>
-                            Embedded Systems
-                        </li>
+                        <strong>Integrated Circuits</strong>
 
-                        <li>
-                            Digital Hardware
-                        </li>
+                    </div>
 
-                        <li>
-                            Semiconductor Fabrication
-                        </li>
 
-                    </ul>
+                    <div class="profile-item">
+
+                        <span>Degree</span>
+
+                        <strong>M.S. ECE</strong>
+
+                    </div>
+
+
+                    <div class="profile-item">
+
+                        <span>University</span>
+
+                        <strong>UC Davis</strong>
+
+                    </div>
+
+
+                    <div class="profile-item">
+
+                        <span>B.S. GPA</span>
+
+                        <strong>3.8</strong>
+
+                    </div>
+
+
+                    <div class="profile-item">
+
+                        <span>Seeking</span>
+
+                        <strong>Full-Time / Research</strong>
+
+                    </div>
 
                 </aside>
 
@@ -308,26 +318,151 @@
 
 
 
-        <!-- ==============================
-             PROJECTS
-        =============================== -->
+        <!-- ==================================================
+             RESEARCH
+        =================================================== -->
 
-        <section id="projects">
+        <section id="research">
 
-            <div class="section-title">
+            <div class="section-heading">
 
-                <p>02</p>
+                <p class="section-number">02</p>
 
-                <h2>Featured Projects</h2>
+                <h2>Research</h2>
 
             </div>
 
 
-            <p class="section-description">
+            <article class="research-card">
 
-                Selected engineering work spanning embedded systems,
-                integrated circuit design, PCB development, and
-                semiconductor fabrication.
+                <div class="research-header">
+
+                    <div>
+
+                        <p class="project-category">
+                            HARDWARE / NEUROLOGICAL SYSTEMS
+                        </p>
+
+                        <h3>
+                            Decoding Neurological Disorders
+                        </h3>
+
+                        <p class="subtitle">
+                            Researcher • Fall 2023
+                        </p>
+
+                    </div>
+
+
+                    <div class="research-tech">
+                        Verilog / SystemVerilog
+                    </div>
+
+                </div>
+
+
+                <p class="research-summary">
+
+                    Investigated hardware-oriented approaches to
+                    neurological disorder modeling, including calcium
+                    disruption and hardware Trojan simulations, with a
+                    focus on exploring how digital hardware systems may
+                    be used to model neurological behavior.
+
+                </p>
+
+
+                <div class="research-grid">
+
+                    <div>
+
+                        <h4>
+                            Simulation
+                        </h4>
+
+                        <p>
+
+                            Developed Verilog and SystemVerilog
+                            simulations examining hardware behavior and
+                            potential vulnerabilities.
+
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h4>
+                            On-Chip Learning
+                        </h4>
+
+                        <p>
+
+                            Contributed to work refining on-chip learning
+                            concepts designed to emulate aspects of a
+                            healthy neurological model.
+
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h4>
+                            Hardware Modeling
+                        </h4>
+
+                        <p>
+
+                            Explored the use of digital hardware models
+                            to study neurological behavior without
+                            requiring direct testing on patients.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="tags">
+
+                    <span>Verilog</span>
+                    <span>SystemVerilog</span>
+                    <span>Hardware Modeling</span>
+                    <span>Simulation</span>
+                    <span>On-Chip Systems</span>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             FEATURED PROJECTS
+        =================================================== -->
+
+        <section id="projects">
+
+            <div class="section-heading">
+
+                <p class="section-number">03</p>
+
+                <h2>Engineering Projects</h2>
+
+            </div>
+
+
+            <p class="section-intro">
+
+                Selected projects spanning integrated circuit design,
+                embedded systems, PCB development, semiconductor
+                fabrication, signal processing, and machine learning.
 
             </p>
 
@@ -336,252 +471,86 @@
             <div class="project-list">
 
 
-                <!-- =========================
-                     PROJECT 1
-                ========================== -->
+                <!-- ==========================================
+                     BARREL SHIFTER
+                =========================================== -->
 
                 <article class="project-card featured-project">
 
-                    <div class="project-heading">
+                    <div class="project-header">
 
                         <div>
 
                             <p class="project-category">
-                                EMBEDDED SYSTEMS / PCB DESIGN
-                            </p>
-
-                            <h3>
-                                Autonomous Camera-Guided Vehicle
-                            </h3>
-
-                        </div>
-
-
-                        <p class="project-index">
-                            01
-                        </p>
-
-                    </div>
-
-
-                    <p class="project-summary">
-
-                        Developed a camera-guided autonomous vehicle for
-                        a competitive track challenge requiring the robot
-                        to remain within lane boundaries while completing
-                        three laps as quickly as possible.
-
-                    </p>
-
-
-                    <div class="project-details">
-
-
-                        <div class="detail-block">
-
-                            <h4>
-                                Hardware Development
-                            </h4>
-
-                            <p>
-
-                                Designed the vehicle's custom circuit
-                                board and prepared the PCB for external
-                                manufacturing. The completed board was
-                                professionally fabricated before being
-                                integrated into the team's robot.
-
-                            </p>
-
-                        </div>
-
-
-
-                        <div class="detail-block">
-
-                            <h4>
-                                Software
-                            </h4>
-
-                            <p>
-
-                                Wrote the majority of the control software,
-                                totaling more than 1,000 lines of Python.
-                                The program incorporated lane detection,
-                                camera-data processing, steering correction,
-                                state-based decision making, and real-time
-                                navigation logic.
-
-                            </p>
-
-                        </div>
-
-
-
-                        <div class="detail-block">
-
-                            <h4>
-                                Engineering Challenge
-                            </h4>
-
-                            <p>
-
-                                The normal navigation algorithm calculated
-                                an experimental center using the two visible
-                                lane boundaries. Sharp turns occasionally
-                                caused only one lane to remain visible,
-                                making the normal center calculation
-                                temporarily impossible.
-
-                            </p>
-
-                        </div>
-
-
-
-                        <div class="detail-block">
-
-                            <h4>
-                                Solution
-                            </h4>
-
-                            <p>
-
-                                Developed fallback navigation logic that
-                                calculated the deflection angle of the
-                                remaining visible lane and temporarily
-                                guided the vehicle using that angle until
-                                both lane boundaries were visible again.
-
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="project-result">
-
-                        <span class="result-label">
-                            RESULT
-                        </span>
-
-                        <p>
-
-                            The vehicle competed in a live three-lap
-                            track demonstration and placed
-
-                            <strong>4th overall</strong>
-
-                            during a presentation attended by faculty,
-                            students, and visiting families.
-
-                        </p>
-
-                    </div>
-
-
-                    <div class="tags">
-
-                        <span>Python</span>
-
-                        <span>PCB Design</span>
-
-                        <span>Embedded Systems</span>
-
-                        <span>Computer Vision</span>
-
-                        <span>Control Systems</span>
-
-                        <span>Autonomous Navigation</span>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- =========================
-                     PROJECT 2
-                ========================== -->
-
-                <article class="project-card">
-
-                    <div class="project-heading">
-
-                        <div>
-
-                            <p class="project-category">
-                                DIGITAL INTEGRATED CIRCUIT DESIGN
+                                INTEGRATED CIRCUIT DESIGN
                             </p>
 
                             <h3>
                                 8-Bit Barrel Shifter
                             </h3>
 
+                            <p class="subtitle">
+                                Individual Project • Winter 2026
+                            </p>
+
                         </div>
 
 
-                        <p class="project-index">
-                            02
-                        </p>
+                        <span class="project-number">
+                            01
+                        </span>
 
                     </div>
 
 
                     <p class="project-summary">
 
-                        Independently designed, implemented, and verified
-                        an 8-bit barrel shifter using Cadence Virtuoso,
-                        progressing from circuit-level design through
-                        physical layout and verification.
+                        Designed an 8-bit barrel shifter from the
+                        transistor level through physical layout,
+                        progressing from fundamental CMOS building blocks
+                        to the complete digital system.
 
                     </p>
 
 
-                    <div class="project-details">
+                    <div class="detail-grid">
 
-
-                        <div class="detail-block">
+                        <div class="detail-card">
 
                             <h4>
-                                Circuit Design
+                                Transistor-Level Design
                             </h4>
 
                             <p>
 
-                                Developed the barrel shifter at both the
-                                gate and transistor levels, connecting
-                                digital logic behavior with the CMOS
-                                circuitry required for physical
-                                implementation.
+                                Began with inverter design and progressed
+                                through combinational logic and 2:1
+                                multiplexers before assembling the
+                                complete 8-bit barrel shifter.
 
                             </p>
 
                         </div>
 
 
-
-                        <div class="detail-block">
+                        <div class="detail-card">
 
                             <h4>
-                                Schematic & Simulation
+                                Schematic Design
                             </h4>
 
                             <p>
 
-                                Created the complete schematic in Cadence
-                                Virtuoso and performed circuit simulations
-                                to verify expected functionality using
-                                simulated waveform analysis.
+                                Developed and simulated circuit
+                                schematics in Cadence Virtuoso to verify
+                                expected digital functionality.
 
                             </p>
 
                         </div>
 
 
-
-                        <div class="detail-block">
+                        <div class="detail-card">
 
                             <h4>
                                 Physical Layout
@@ -589,17 +558,15 @@
 
                             <p>
 
-                                Created the physical IC layout and completed
-                                design-rule checking to verify that the
-                                geometry satisfied fabrication constraints.
+                                Created physical layouts for each design
+                                stage and the complete circuit.
 
                             </p>
 
                         </div>
 
 
-
-                        <div class="detail-block">
+                        <div class="detail-card">
 
                             <h4>
                                 Verification
@@ -607,10 +574,9 @@
 
                             <p>
 
-                                Completed DRC and layout-versus-schematic
-                                verification to ensure that the physical
-                                layout accurately represented the intended
-                                electrical circuit.
+                                Completed DRC and LVS verification to
+                                confirm design-rule compliance and
+                                schematic-to-layout accuracy.
 
                             </p>
 
@@ -622,15 +588,11 @@
                     <div class="tags">
 
                         <span>Cadence Virtuoso</span>
-
                         <span>CMOS</span>
-
-                        <span>DRC</span>
-
-                        <span>LVS</span>
-
+                        <span>Transistor-Level Design</span>
                         <span>IC Layout</span>
-
+                        <span>DRC</span>
+                        <span>LVS</span>
                         <span>Digital Logic</span>
 
                     </div>
@@ -639,13 +601,162 @@
 
 
 
-                <!-- =========================
-                     PROJECT 3
-                ========================== -->
+                <!-- ==========================================
+                     AUTONOMOUS VEHICLE
+                =========================================== -->
 
-                <article class="project-card">
+                <article class="project-card featured-project">
 
-                    <div class="project-heading">
+                    <div class="project-header">
+
+                        <div>
+
+                            <p class="project-category">
+                                EMBEDDED SYSTEMS / PCB DESIGN
+                            </p>
+
+                            <h3>
+                                Autonomous Camera-Based Vehicle
+                            </h3>
+
+                            <p class="subtitle">
+                                Team Project • Winter–Spring 2025
+                            </p>
+
+                        </div>
+
+
+                        <span class="project-number">
+                            02
+                        </span>
+
+                    </div>
+
+
+                    <p class="project-summary">
+
+                        Designed and built a self-driving vehicle capable
+                        of navigating a track using only information
+                        captured by an onboard camera.
+
+                    </p>
+
+
+                    <div class="detail-grid">
+
+                        <div class="detail-card">
+
+                            <h4>
+                                Custom Hardware
+                            </h4>
+
+                            <p>
+
+                                Designed prototype vehicle hardware in
+                                Altium, including H-bridge motor control,
+                                voltage regulation, MOSFET circuitry,
+                                passive noise filtering, servo control,
+                                and OpenMV integration.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="detail-card">
+
+                            <h4>
+                                Python Control Software
+                            </h4>
+
+                            <p>
+
+                                Wrote the majority of more than 1,000
+                                lines of Python responsible for
+                                frame-by-frame processing, line detection,
+                                steering decisions, and vehicle control.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="detail-card">
+
+                            <h4>
+                                Navigation
+                            </h4>
+
+                            <p>
+
+                                Calculated lane position, directional
+                                error, and deflection angle to determine
+                                steering behavior and dynamically adjust
+                                PWM outputs.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="detail-card">
+
+                            <h4>
+                                Feedback Control
+                            </h4>
+
+                            <p>
+
+                                Implemented PID-based control for vehicle
+                                speed and directional correction while
+                                navigating the track.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="result-box">
+
+                        <span>COMPETITION RESULT</span>
+
+                        <p>
+
+                            Successfully competed in a timed three-lap
+                            autonomous track demonstration while remaining
+                            within the course boundaries.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="tags">
+
+                        <span>Altium</span>
+                        <span>Python</span>
+                        <span>OpenMV</span>
+                        <span>PCB Design</span>
+                        <span>PID Control</span>
+                        <span>PWM</span>
+                        <span>Computer Vision</span>
+                        <span>MOSFETs</span>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ==========================================
+                     MOSFET FAB
+                =========================================== -->
+
+                <article class="project-card featured-project">
+
+                    <div class="project-header">
 
                         <div>
 
@@ -657,30 +768,64 @@
                                 MOSFET Fabrication & Characterization
                             </h3>
 
+                            <p class="subtitle">
+                                UC Davis Cleanroom
+                            </p>
+
                         </div>
 
 
-                        <p class="project-index">
+                        <span class="project-number">
                             03
-                        </p>
+                        </span>
 
                     </div>
 
 
                     <p class="project-summary">
 
-                        Fabricated a MOSFET in a university cleanroom,
-                        gaining hands-on experience with the physical
-                        manufacturing processes used to create
-                        semiconductor devices.
+                        Fabricated and electrically characterized a
+                        MOSFET in a university cleanroom, gaining
+                        hands-on experience with the semiconductor
+                        manufacturing process.
 
                     </p>
 
 
-                    <div class="project-details">
+                    <div class="process-flow">
+
+                        <span>Photolithography</span>
+
+                        <span>→</span>
+
+                        <span>Oxidation</span>
+
+                        <span>→</span>
+
+                        <span>Etching</span>
+
+                        <span>→</span>
+
+                        <span>Deposition</span>
+
+                        <span>→</span>
+
+                        <span>Diffusion</span>
+
+                        <span>→</span>
+
+                        <span>Metallization</span>
+
+                        <span>→</span>
+
+                        <span>Testing</span>
+
+                    </div>
 
 
-                        <div class="detail-block">
+                    <div class="detail-grid">
+
+                        <div class="detail-card">
 
                             <h4>
                                 Fabrication
@@ -688,67 +833,27 @@
 
                             <p>
 
-                                Participated directly in the device
-                                fabrication process, including
-                                photolithography, oxidation, etching,
-                                deposition, diffusion, and metallization.
+                                Performed multiple semiconductor process
+                                steps including photolithography,
+                                oxidation, etching, deposition, diffusion,
+                                and metallization.
 
                             </p>
 
                         </div>
 
 
-
-                        <div class="detail-block">
+                        <div class="detail-card">
 
                             <h4>
-                                Cleanroom Processing
+                                Characterization
                             </h4>
 
                             <p>
 
-                                Worked in a university cleanroom environment
-                                while following semiconductor processing
-                                procedures and handling wafers throughout
-                                multiple fabrication stages.
-
-                            </p>
-
-                        </div>
-
-
-
-                        <div class="detail-block">
-
-                            <h4>
-                                Device Testing
-                            </h4>
-
-                            <p>
-
-                                Performed electrical testing and
-                                characterization following fabrication to
-                                evaluate the behavior of the completed
-                                MOSFET.
-
-                            </p>
-
-                        </div>
-
-
-
-                        <div class="detail-block">
-
-                            <h4>
-                                Engineering Perspective
-                            </h4>
-
-                            <p>
-
-                                Connected semiconductor device theory with
-                                the real manufacturing processes that
-                                determine the characteristics of a
-                                fabricated transistor.
+                                Electrically tested the fabricated device
+                                and examined its resulting transistor
+                                behavior.
 
                             </p>
 
@@ -760,20 +865,305 @@
                     <div class="tags">
 
                         <span>MOSFET</span>
-
+                        <span>Cleanroom</span>
                         <span>Photolithography</span>
-
                         <span>Oxidation</span>
-
                         <span>Etching</span>
-
                         <span>Deposition</span>
-
                         <span>Diffusion</span>
-
                         <span>Metallization</span>
 
-                        <span>Characterization</span>
+                    </div>
+
+                </article>
+
+
+
+                <!-- ==========================================
+                     ADDITIONAL PROJECTS
+                =========================================== -->
+
+                <div class="section-subheading">
+
+                    <h3>
+                        Additional Projects
+                    </h3>
+
+                </div>
+
+
+                <div class="compact-project-grid">
+
+
+                    <article class="compact-project">
+
+                        <p class="project-category">
+                            EMBEDDED / CLOUD
+                        </p>
+
+                        <h3>
+                            Biometric Attendance System
+                        </h3>
+
+                        <p>
+
+                            Built a fingerprint-based attendance system
+                            using a CC3200, UART fingerprint sensor, LCD
+                            interface, IR remote control, embedded C, and
+                            AWS Lambda cloud storage.
+
+                        </p>
+
+
+                        <div class="tags">
+
+                            <span>C</span>
+                            <span>CC3200</span>
+                            <span>UART</span>
+                            <span>AWS Lambda</span>
+                            <span>LCD</span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="compact-project">
+
+                        <p class="project-category">
+                            ANALOG / EMBEDDED
+                        </p>
+
+                        <h3>
+                            Sound-Controlled Movement Robot
+                        </h3>
+
+                        <p>
+
+                            Developed a robot that detected and navigated
+                            toward a sound source using dual microphones,
+                            op-amp amplification, ADC processing, timers,
+                            interrupts, and PWM on a TI MSP432.
+
+                        </p>
+
+
+                        <p class="mini-result">
+                            Top 3 Finalist • UC Davis Open House Presenter
+                        </p>
+
+
+                        <div class="tags">
+
+                            <span>MSP432</span>
+                            <span>ADC</span>
+                            <span>PWM</span>
+                            <span>Op-Amps</span>
+                            <span>Signal Processing</span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="compact-project">
+
+                        <p class="project-category">
+                            MATLAB / MACHINE LEARNING
+                        </p>
+
+                        <h3>
+                            AI Art Period Classifier
+                        </h3>
+
+                        <p>
+
+                            Developed a MATLAB application that classified
+                            artwork by historical period using machine
+                            learning, feature extraction, and data
+                            preprocessing.
+
+                        </p>
+
+
+                        <p class="mini-result">
+                            Approx. 70–90% classification accuracy
+                        </p>
+
+
+                        <div class="tags">
+
+                            <span>MATLAB</span>
+                            <span>Machine Learning</span>
+                            <span>Image Processing</span>
+                            <span>Feature Extraction</span>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             SKILLS
+        =================================================== -->
+
+        <section id="skills">
+
+            <div class="section-heading">
+
+                <p class="section-number">04</p>
+
+                <h2>Technical Skills</h2>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+
+                <article class="skill-card">
+
+                    <span class="skill-index">01</span>
+
+                    <h3>
+                        IC & Semiconductor
+                    </h3>
+
+                    <div class="skill-tags">
+
+                        <span>Cadence Virtuoso</span>
+                        <span>Silvaco / Athena</span>
+                        <span>LTspice / SPICE</span>
+                        <span>CMOS Design</span>
+                        <span>IC Layout</span>
+                        <span>DRC / LVS</span>
+                        <span>Semiconductor Fabrication</span>
+                        <span>Device Characterization</span>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="skill-card">
+
+                    <span class="skill-index">02</span>
+
+                    <h3>
+                        Digital Hardware
+                    </h3>
+
+                    <div class="skill-tags">
+
+                        <span>Verilog</span>
+                        <span>SystemVerilog</span>
+                        <span>VHDL</span>
+                        <span>FPGA Development</span>
+                        <span>Intel Quartus</span>
+                        <span>RISC-V</span>
+                        <span>Digital Logic</span>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="skill-card">
+
+                    <span class="skill-index">03</span>
+
+                    <h3>
+                        Embedded & PCB
+                    </h3>
+
+                    <div class="skill-tags">
+
+                        <span>Altium</span>
+                        <span>PCB Design</span>
+                        <span>MSP430 / MSP432</span>
+                        <span>CC3200</span>
+                        <span>OpenMV</span>
+                        <span>UART</span>
+                        <span>GPIO</span>
+                        <span>ADC</span>
+                        <span>PWM</span>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="skill-card">
+
+                    <span class="skill-index">04</span>
+
+                    <h3>
+                        Programming
+                    </h3>
+
+                    <div class="skill-tags">
+
+                        <span>Python</span>
+                        <span>C</span>
+                        <span>C++</span>
+                        <span>MATLAB</span>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="skill-card">
+
+                    <span class="skill-index">05</span>
+
+                    <h3>
+                        Laboratory
+                    </h3>
+
+                    <div class="skill-tags">
+
+                        <span>Oscilloscope</span>
+                        <span>Function Generator</span>
+                        <span>Soldering</span>
+                        <span>Cleanroom Processing</span>
+                        <span>Circuit Testing</span>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="skill-card">
+
+                    <span class="skill-index">06</span>
+
+                    <h3>
+                        Analysis
+                    </h3>
+
+                    <div class="skill-tags">
+
+                        <span>PID Control</span>
+                        <span>Signal Processing</span>
+                        <span>Image Processing</span>
+                        <span>Abstract Mathematics</span>
+                        <span>Engineering Analysis</span>
 
                     </div>
 
@@ -786,218 +1176,97 @@
 
 
 
-        <!-- ==============================
-             SKILLS
-        =============================== -->
-
-        <section id="skills">
-
-            <div class="section-title">
-
-                <p>03</p>
-
-                <h2>Technical Skills</h2>
-
-            </div>
-
-
-            <div class="skills-grid">
-
-
-                <div class="skill-card">
-
-                    <p class="skill-number">01</p>
-
-                    <h3>
-                        IC & Circuit Design
-                    </h3>
-
-                    <ul>
-
-                        <li>Cadence Virtuoso</li>
-
-                        <li>LTspice / SPICE</li>
-
-                        <li>CMOS Design</li>
-
-                        <li>Digital Logic</li>
-
-                        <li>Analog Circuits</li>
-
-                        <li>IC Layout</li>
-
-                        <li>DRC / LVS</li>
-
-                    </ul>
-
-                </div>
-
-
-
-                <div class="skill-card">
-
-                    <p class="skill-number">02</p>
-
-                    <h3>
-                        Digital Hardware
-                    </h3>
-
-                    <ul>
-
-                        <li>Verilog</li>
-
-                        <li>SystemVerilog</li>
-
-                        <li>VHDL</li>
-
-                        <li>FPGA Development</li>
-
-                        <li>Intel Quartus</li>
-
-                        <li>PCB Design</li>
-
-                    </ul>
-
-                </div>
-
-
-
-                <div class="skill-card">
-
-                    <p class="skill-number">03</p>
-
-                    <h3>
-                        Programming
-                    </h3>
-
-                    <ul>
-
-                        <li>Python</li>
-
-                        <li>C</li>
-
-                        <li>C++</li>
-
-                        <li>MATLAB</li>
-
-                    </ul>
-
-                </div>
-
-
-
-                <div class="skill-card">
-
-                    <p class="skill-number">04</p>
-
-                    <h3>
-                        Embedded Systems
-                    </h3>
-
-                    <ul>
-
-                        <li>Texas Instruments MSP430</li>
-
-                        <li>Microcontrollers</li>
-
-                        <li>Sensor Integration</li>
-
-                        <li>Control Logic</li>
-
-                        <li>Autonomous Systems</li>
-
-                    </ul>
-
-                </div>
-
-
-
-                <div class="skill-card">
-
-                    <p class="skill-number">05</p>
-
-                    <h3>
-                        Semiconductor
-                    </h3>
-
-                    <ul>
-
-                        <li>Cleanroom Fabrication</li>
-
-                        <li>MOSFET Fabrication</li>
-
-                        <li>Photolithography</li>
-
-                        <li>Oxidation & Etching</li>
-
-                        <li>Deposition</li>
-
-                        <li>Diffusion</li>
-
-                        <li>Metallization</li>
-
-                        <li>Device Characterization</li>
-
-                    </ul>
-
-                </div>
-
-
-
-                <div class="skill-card">
-
-                    <p class="skill-number">06</p>
-
-                    <h3>
-                        Laboratory & Analysis
-                    </h3>
-
-                    <ul>
-
-                        <li>Oscilloscope</li>
-
-                        <li>Function Generator</li>
-
-                        <li>Soldering</li>
-
-                        <li>Circuit Testing</li>
-
-                        <li>Abstract Mathematics</li>
-
-                        <li>Engineering Analysis</li>
-
-                    </ul>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==============================
+        <!-- ==================================================
              EXPERIENCE
-        =============================== -->
+        =================================================== -->
 
         <section id="experience">
 
-            <div class="section-title">
+            <div class="section-heading">
 
-                <p>04</p>
+                <p class="section-number">05</p>
 
                 <h2>Experience</h2>
 
             </div>
 
 
-            <div class="experience-card">
+
+            <div class="timeline">
 
 
-                <div class="experience-header">
+                <article class="timeline-item">
 
-                    <div>
+                    <div class="timeline-date">
+                        Spring 2024 – Present
+                    </div>
+
+
+                    <div class="timeline-content">
+
+                        <p class="experience-company">
+                            Tau Beta Pi
+                        </p>
+
+                        <h3>
+                            Engineering & Mathematics Tutor
+                        </h3>
+
+
+                        <p>
+
+                            Tutor for Calculus I–III, Vector Calculus,
+                            classical mechanics, electromagnetism, and
+                            circuit theory.
+
+                        </p>
+
+
+                        <ul>
+
+                            <li>
+
+                                Helped a Calculus III student improve from
+                                a D to a B through targeted instruction
+                                and individualized study strategies.
+
+                            </li>
+
+
+                            <li>
+
+                                Supported a student facing university
+                                dismissal through Circuit Theory
+                                preparation, contributing to successful
+                                academic recovery and readmission.
+
+                            </li>
+
+
+                            <li>
+
+                                Transitioned from organization-based
+                                tutoring to private tutoring after
+                                receiving continued student interest.
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="timeline-item">
+
+                    <div class="timeline-date">
+                        Spring 2023
+                    </div>
+
+
+                    <div class="timeline-content">
 
                         <p class="experience-company">
                             Engineering Department
@@ -1007,54 +1276,20 @@
                             IT Help Desk
                         </h3>
 
+
+                        <p>
+
+                            Independently handled assigned technical
+                            support tickets, maintained the help-desk
+                            workspace, and communicated ticket status and
+                            technical issues to department management.
+
+                        </p>
+
                     </div>
 
+                </article>
 
-                    <p class="experience-date">
-                        Spring 2023
-                    </p>
-
-                </div>
-
-
-                <ul class="experience-points">
-
-                    <li>
-
-                        Independently handled assigned daily technical
-                        support tickets and worked to resolve user and
-                        workstation issues efficiently.
-
-                    </li>
-
-
-                    <li>
-
-                        Maintained consistent attendance and completed
-                        assigned responsibilities while working largely
-                        independently.
-
-                    </li>
-
-
-                    <li>
-
-                        Maintained an organized and professional help-desk
-                        workspace and ensured equipment and work areas
-                        remained properly kept.
-
-                    </li>
-
-
-                    <li>
-
-                        Communicated task progress and technical issues
-                        to the supervising manager when escalation or
-                        additional assistance was required.
-
-                    </li>
-
-                </ul>
 
             </div>
 
@@ -1062,25 +1297,26 @@
 
 
 
-        <!-- ==============================
+        <!-- ==================================================
              EDUCATION
-        =============================== -->
+        =================================================== -->
 
         <section id="education">
 
-            <div class="section-title">
+            <div class="section-heading">
 
-                <p>05</p>
+                <p class="section-number">06</p>
 
                 <h2>Education</h2>
 
             </div>
 
 
-            <div class="education-list">
+
+            <div class="education-grid">
 
 
-                <div class="education-card">
+                <article class="education-card">
 
                     <div>
 
@@ -1089,33 +1325,29 @@
                         </p>
 
                         <h3>
-                            M.S. Electrical Engineering
+                            M.S. Electrical & Computer Engineering
                         </h3>
 
-                        <p class="education-subtitle">
+                        <p>
                             Focus: Integrated Circuits
                         </p>
 
                     </div>
 
 
-                    <div class="education-year">
+                    <div class="degree-date">
 
-                        <span>
-                            Expected
-                        </span>
+                        <span>Expected</span>
 
-                        <strong>
-                            2028
-                        </strong>
+                        <strong>2028</strong>
 
                     </div>
 
-                </div>
+                </article>
 
 
 
-                <div class="education-card">
+                <article class="education-card">
 
                     <div>
 
@@ -1127,27 +1359,80 @@
                             B.S. Electrical Engineering
                         </h3>
 
-                        <p class="education-subtitle">
-                            Bachelor of Science completed
+                        <p>
+                            GPA: 3.8
                         </p>
 
                     </div>
 
 
-                    <div class="education-year">
+                    <div class="degree-date">
 
-                        <span>
-                            Degree
-                        </span>
+                        <span>Completed</span>
 
-                        <strong>
-                            Completed
-                        </strong>
+                        <strong>Winter 2026</strong>
 
                     </div>
 
+                </article>
+
+
+            </div>
+
+
+
+            <div class="academic-highlights">
+
+                <div>
+
+                    <span class="highlight-label">
+                        HONORS
+                    </span>
+
+                    <strong>
+                        Dean's Honor List ×4
+                    </strong>
+
                 </div>
 
+
+                <div>
+
+                    <span class="highlight-label">
+                        ASSOCIATION
+                    </span>
+
+                    <strong>
+                        Tau Beta Pi
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span class="highlight-label">
+                        RESEARCH
+                    </span>
+
+                    <strong>
+                        E-SEARCH
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span class="highlight-label">
+                        ROBOTICS
+                    </span>
+
+                    <strong>
+                        Top 3 Competition Finalist
+                    </strong>
+
+                </div>
 
             </div>
 
@@ -1155,16 +1440,16 @@
 
 
 
-        <!-- ==============================
+        <!-- ==================================================
              CONTACT
-        =============================== -->
+        =================================================== -->
 
         <section id="contact">
 
-            <div class="contact-box">
+            <div class="contact-container">
 
-                <p class="contact-label">
-                    06 / CONTACT
+                <p class="contact-overline">
+                    07 / CONTACT
                 </p>
 
 
@@ -1175,45 +1460,50 @@
 
                 <p>
 
-                    I am currently seeking full-time opportunities in
-                    integrated circuit design, semiconductor engineering,
-                    and embedded systems, as well as paid engineering
-                    research opportunities.
+                    I am currently seeking full-time engineering roles
+                    and paid research opportunities in integrated circuit
+                    design, semiconductor engineering, embedded systems,
+                    and related hardware fields.
 
                 </p>
 
 
-                <div class="contact-links">
-
+                <div class="contact-actions">
 
                     <a
+                        class="button primary-button"
                         href="mailto:mikkyla.urienza@gmail.com"
-                        class="button primary-button">
-
+                    >
                         Email Me
-
                     </a>
 
 
                     <a
+                        class="button secondary-button"
                         href="https://www.linkedin.com/in/mikkyla-danielle-urienza-290a921ba"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="button secondary-button">
-
+                    >
                         LinkedIn
-
                     </a>
 
 
                     <a
+                        class="button secondary-button"
                         href="https://github.com/mk-urienza"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="button secondary-button">
-
+                    >
                         GitHub
+                    </a>
 
+
+                    <a
+                        class="button secondary-button"
+                        href="resume.pdf"
+                        target="_blank"
+                    >
+                        Resume
                     </a>
 
                 </div>
@@ -1227,16 +1517,15 @@
 
 
 
-    <!-- ==============================
+    <!-- ==================================================
          FOOTER
-    =============================== -->
+    =================================================== -->
 
     <footer>
 
         <p>
             © 2026 MK Urienza
         </p>
-
 
         <p>
             Electrical Engineering Portfolio
