@@ -1,97 +1,80 @@
-// ==========================================================
-// DARK MODE
-// ==========================================================
-
 const themeButton = document.getElementById("themeButton");
-
-const storedTheme = localStorage.getItem("portfolio-theme");
-
-const systemPrefersDark =
-    window.matchMedia("(prefers-color-scheme: dark)").matches;
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.getElementById("navLinks");
 
 
-// Load saved preference.
-// If none exists, use the visitor's system theme.
+// =========================================================
+// DARK MODE
+// =========================================================
 
-if (
-    storedTheme === "dark" ||
-    (!storedTheme && systemPrefersDark)
-) {
+const savedTheme = localStorage.getItem("portfolio-theme");
 
+if (savedTheme === "dark") {
     document.body.classList.add("dark");
+}
 
-    themeButton.textContent = "☀";
 
-} else {
+if (themeButton) {
 
-    document.body.classList.remove("dark");
+    themeButton.addEventListener("click", () => {
 
-    themeButton.textContent = "☾";
+        document.body.classList.toggle("dark");
+
+        const isDark =
+            document.body.classList.contains("dark");
+
+        localStorage.setItem(
+            "portfolio-theme",
+            isDark ? "dark" : "light"
+        );
+
+    });
 
 }
 
 
-themeButton.addEventListener("click", () => {
+// =========================================================
+// MOBILE MENU
+// =========================================================
 
-    document.body.classList.toggle("dark");
+if (menuButton && navLinks) {
 
+    menuButton.addEventListener("click", () => {
 
-    if (document.body.classList.contains("dark")) {
-
-        localStorage.setItem(
-            "portfolio-theme",
-            "dark"
-        );
-
-        themeButton.textContent = "☀";
-
-    } else {
-
-        localStorage.setItem(
-            "portfolio-theme",
-            "light"
-        );
-
-        themeButton.textContent = "☾";
-
-    }
-
-});
-
-
-
-// ==========================================================
-// MOBILE NAVIGATION
-// ==========================================================
-
-const menuButton =
-    document.getElementById("menuButton");
-
-const navLinks =
-    document.getElementById("navLinks");
-
-
-menuButton.addEventListener("click", () => {
-
-    const opened =
         navLinks.classList.toggle("open");
 
-    menuButton.setAttribute(
-        "aria-expanded",
-        opened
-    );
+        const expanded =
+            navLinks.classList.contains("open");
 
-});
+        menuButton.setAttribute(
+            "aria-expanded",
+            expanded
+        );
+
+    });
 
 
+    navLinks
+        .querySelectorAll("a")
+        .forEach(link => {
 
-// Close menu when navigation link is clicked
+            link.addEventListener("click", () => {
 
-document
-    .querySelectorAll(".nav-links a")
-    .forEach(link => {
+                navLinks.classList.remove("open");
 
-        link.addEventListener("click", () => {
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            });
+
+        });
+
+
+    window.addEventListener("resize", () => {
+
+        if (window.innerWidth > 760) {
 
             navLinks.classList.remove("open");
 
@@ -100,25 +83,8 @@ document
                 "false"
             );
 
-        });
+        }
 
     });
 
-
-
-// Close mobile menu if window becomes desktop sized
-
-window.addEventListener("resize", () => {
-
-    if (window.innerWidth > 780) {
-
-        navLinks.classList.remove("open");
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-    }
-
-});
+}
