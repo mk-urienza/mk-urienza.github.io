@@ -1,1 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Autonomous Camera-Based Vehicle engineering project by MK Urienza."
+    >
+
+    <title>
+        Autonomous Camera-Based Vehicle | MK Urienza
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <header class="site-header">
+
+        <nav class="navbar container">
+
+            <a
+                href="../index.html"
+                class="logo"
+            >
+                MK<span>.</span>
+            </a>
+
+
+            <button
+                id="menuButton"
+                class="menu-button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
+
+
+            <div
+                id="navLinks"
+                class="nav-links"
+            >
+
+                <a href="../index.html#about">
+                    About
+                </a>
+
+                <a href="../index.html#projects">
+                    Projects
+                </a>
+
+                <a href="../index.html#skills">
+                    Skills
+                </a>
+
+                <a href="../index.html#contact">
+                    Contact
+                </a>
+
+
+                <button
+                    id="themeButton"
+                    class="theme-button"
+                    aria-label="Toggle dark mode"
+                >
+                    ◐
+                </button>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+
+    <main class="project-page">
+
+
+        <!-- =====================================================
+             PROJECT HERO
+        ====================================================== -->
+
+        <section class="project-hero">
+
+            <div class="container">
+
+                <a
+                    href="../index.html#projects"
+                    class="back-link"
+                >
+                    ← Back to Projects
+                </a>
+
+
+                <p class="project-category">
+                    EMBEDDED SYSTEMS • COMPUTER VISION
+                </p>
+
+
+                <h1>
+                    Autonomous Camera-Based Vehicle
+                </h1>
+
+
+                <p class="project-lead">
+                    A camera-guided autonomous vehicle combining custom
+                    PCB hardware, OpenMV computer vision, lane geometry,
+                    closed-loop speed control, and PWM steering.
+                </p>
+
+
+                <div class="project-meta">
+
+                    <span>
+                        Primary Technical Contributor
+                    </span>
+
+                    <span>
+                        Winter–Spring 2025
+                    </span>
+
+                    <span>
+                        Python
+                    </span>
+
+                    <span>
+                        OpenMV
+                    </span>
+
+                    <span>
+                        Altium Designer
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <div class="container project-content">
+
+
+            <!-- =================================================
+                 OVERVIEW
+            ================================================== -->
+
+            <section class="project-section">
+
+                <div class="project-section-grid">
+
+                    <div class="project-section-title">
+
+                        <p class="section-label">
+                            01
+                        </p>
+
+                        <h2>
+                            Overview
+                        </h2>
+
+                    </div>
+
+
+                    <div class="project-section-body">
+
+                        <p>
+                            The project required an autonomous vehicle to remain
+                            inside a marked track while completing a timed run.
+                            The system combined camera-based lane detection,
+                            steering control, speed measurement, PID correction,
+                            motor control, and custom vehicle electronics.
+                        </p>
+
+
+                        <p>
+                            I designed the vehicle PCB in Altium and implemented
+                            the majority of the camera-guided control software,
+                            including the lane geometry and control logic used by
+                            the vehicle during autonomous operation.
+                        </p>
+
+
+                        <div class="result-card">
+
+                            <h3>
+                                Result
+                            </h3>
+
+                            <p>
+                                The project placed Top 3 and was demonstrated
+                                during the UC Davis engineering open house.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SYSTEM ARCHITECTURE
+            ================================================== -->
+
+            <section class="project-section">
+
+                <div class="project-section-grid">
+
+                    <div class="project-section-title">
+
+                        <p class="section-label">
+                            02
+                        </p>
+
+                        <h2>
+                            System Architecture
+                        </h2>
+
+                    </div>
+
+
+                    <div class="project-section-body">
+
+                        <p>
+                            The software pipeline converted each camera frame
+                            into steering information while a separate control
+                            loop measured vehicle speed and updated the motor PWM.
+                        </p>
+
+
+                        <div class="architecture">
+
+                            <div class="architecture-box">
+                                OpenMV Camera Frame
+                            </div>
+
+                            <div class="architecture-arrow">
+                                ↓
+                            </div>
+
+                            <div class="architecture-box">
+                                Grayscale Thresholding
+                            </div>
+
+                            <div class="architecture-arrow">
+                                ↓
+                            </div>
+
+                            <div class="architecture-box">
+                                Left / Right Region of Interest
+                            </div>
+
+                            <div class="architecture-arrow">
+                                ↓
+                            </div>
+
+                            <div class="architecture-box">
+                                Robust Linear Regression
+                            </div>
+
+                            <div class="architecture-arrow">
+                                ↓
+                            </div>
+
+                            <div class="architecture-box">
+                                Lane Center + Deflection Angle
+                            </div>
+
+                            <div class="architecture-arrow">
+                                ↓
+                            </div>
+
+                            <div class="architecture-box">
+                                Steering Correction
+                            </div>
+
+                            <div class="architecture-arrow">
+                                ↓
+                            </div>
+
+                            <div class="architecture-box">
+                                Servo PWM
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 CAMERA PROCESSING
+            ================================================== -->
+
+            <section class="project-section">
+
+                <div class="project-section-grid">
+
+                    <div class="project-section-title">
+
+                        <p class="section-label">
+                            03
+                        </p>
+
+                        <h2>
+                            Camera Processing
+                        </h2>
+
+                    </div>
+
+
+                    <div class="project-section-body">
+
+                        <p>
+                            The OpenMV camera operated in grayscale at QQVGA
+                            resolution. Two regions of interest were used to
+                            independently estimate the left and right lane
+                            boundaries.
+                        </p>
+
+
+                        <div class="code-block">
+
+                            <div class="code-header">
+
+                                <span>
+                                    main.py
+                                </span>
+
+                                <span>
+                                    Python
+                                </span>
+
+                            </div>
+
+                            <pre><code>roi_left = (0, 30, 30, 30)
+roi_right = (50, 30, 30, 30)
+
+line_left = img.get_regression(
+    [(255, 255) if BINARY_VISIBLE else THRESHOLD],
+    roi=roi_left,
+    robust=True
+)
+
+line_right = img.get_regression(
+    [(255, 255) if BINARY_VISIBLE else THRESHOLD],
+    roi=roi_right,
+    robust=True
+)</code></pre>
+
+                        </div>
+
+
+                        <div class="explanation-box">
+
+                            <strong>
+                                Why this matters
+                            </strong>
+
+                            <p>
+                                Splitting the lower image into separate left and
+                                right regions prevents the algorithm from treating
+                                the entire track as a single feature. Each detected
+                                lane boundary can instead contribute independently
+                                to the estimated track center.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 LANE GEOMETRY
+            ================================================== -->
+
+            <section class="project-section">
+
+                <div class="project-section-grid">
+
+                    <div class="project-section-title">
+
+                        <p class="section-label">
+                            04
+                        </p>
+
+                        <h2>
+                            Lane Geometry
+                        </h2>
+
+                    </div>
+
+
+                    <div class="project-section-body">
+
+                        <p>
+                            Rather than steering directly from one detected line,
+                            the software projects both lane boundaries onto common
+                            image rows and calculates the midpoint between them.
+                        </p>
+
+
+                        <div class="code-block">
+
+                            <div class="code-header">
+
+                                <span>
+                                    main.py
+                                </span>
+
+                                <span>
+                                    Lane center calculation
+                                </span>
+
+                            </div>
+
+                            <pre><code>def x_at_y(l, y):
+    x1, y1, x2, y2 = l.line()
+
+    if x2 == x1:
+        return x1
+
+    m = (y2 - y1) / (x2 - x1)
+
+    if m == 0:
+        return (x1 + x2) // 2
+
+    return int((y - y1) / m + x1)
+
+
+def midpoint_line(l_left, l_right, y_lo, y_hi):
+
+    xl_lo = x_at_y(l_left, y_lo)
+    xl_hi = x_at_y(l_left, y_hi)
+
+    xr_lo = x_at_y(l_right, y_lo)
+    xr_hi = x_at_y(l_right, y_hi)
+
+    xm_lo = (xl_lo + xr_lo) // 2
+    xm_hi = (xl_hi + xr_hi) // 2
+
+    return (xm_lo, y_lo, xm_hi, y_hi)</code></pre>
+
+                        </div>
+
+
+                        <div class="explanation-box">
+
+                            <strong>
+                                Engineering approach
+                            </strong>
+
+                            <p>
+                                The midpoint line estimates the path the vehicle
+                                should follow between the detected lane boundaries.
+                                Its horizontal position provides lateral error,
+                                while its angle provides information about the
+                                direction of the track.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 STEERING CONTROL
+            ================================================== -->
+
+            <section class="project-section">
+
+                <div class="project-section-grid">
+
+                    <div class="project-section-title">
+
+                        <p class="section-label">
+                            05
+                        </p>
+
+                        <h2>
+                            Steering Control
+                        </h2>
+
+                    </div>
+
+
+                    <div class="project-section-body">
+
+                        <p>
+                            With an 80-pixel-wide image, the camera center is
+                            located near x = 40. The control software calculates
+                            the difference between the detected lane midpoint and
+                            the image center.
+                        </p>
+
+
+                        <div class="code-block">
+
+                            <div class="code-header">
+
+                                <span>
+                                    main.py
+                                </span>
+
+                                <span>
+                                    Steering correction
+                                </span>
+
+                            </div>
+
+                            <pre><code>midpoint = (xl_lo + xr_lo) / 2
+err_px = midpoint - 40
+
+if abs(err_px) > 2:
+    pulse = int(err_px * -3000)
+
+elif abs(err_px) < 2:
+    pulse = int(deflectionAngleDeg * 2500)
+
+target_ns = sc + pulse
+
+if target_ns < sr:
+    target_ns = sr
+
+elif target_ns > sl:
+    target_ns = sl
+
+servo.duty_ns(target_ns)</code></pre>
+
+                        </div>
+
+
+                        <p>
+                            Larger lateral errors prioritize correction toward
+                            the center of the lane. Once the vehicle is close to
+                            the center, track angle is used to anticipate the
+                            direction of travel.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SINGLE LANE
+            ================================================== -->
+
+            <section class="project-section">
+
+                <div class="project-section-grid">
+
+                    <div class="project-section-title">
+
+                        <p class="section-label">
+                            06
+                        </p>
+
+                        <h2>
+                            Single-Lane Recovery
+                        </h2>
+
+                    </div>
+
+
+                    <div class="project-section-body">
+
+                        <p>
+                            Sharp turns or camera positioning could temporarily
+                            remove one lane boundary from the image. Instead of
+                            immediately abandoning steering control, the software
+                            falls back to the angle of the remaining detected line.
+                        </p>
+
+
+                        <div class="code-block">
+
+                            <div class="code-header">
+
+                                <span>
+                                    main.py
+                                </span>
+
+                                <span>
+                                    Recovery behavior
+                                </span>
+
+                            </div>
+
+                            <pre><code>elif line_left or line_right:
+
+    line = img.get_regression(
+        [(255, 255) if BINARY_VISIBLE else THRESHOLD],
+        robust=True
+    )
+
+    x1, y1 = line.x1(), line.y1()
+    x2, y2 = line.x2(), line.y2()
+
+    if y1 != y2:
+        deflectionAngle = math.atan(
+            (x1 - x2) / float(y1 - y2)
+        )
+    else:
+        deflectionAngle = 0
+
+    deflectionAngleDeg = math.degrees(
+        deflectionAngle
+    )
+
+    pulse = int(deflectionAngleDeg * 9500)
+
+    target_ns = sc + pulse
+
+    if target_ns < sr:
+        target_ns = sr
+
+    elif target_ns > sl:
+        target_ns = sl
+
+    servo.duty_ns(target_ns)</code></pre>
+
+                        </div>
+
+
+                        <div class="explanation-box">
+
+                            <strong>
+                                Failure recovery
+                            </strong>
+
+                            <p>
+                                This gives the vehicle a temporary steering
+                                strategy when only one lane boundary remains
+                                visible instead of immediately losing all control.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SPEED PID
+            ================================================== -->
+
+            <section class="project-section">
+
+                <div class="project-section-grid">
+
+                    <div class="project-section-title">
+
+                        <p class="section-label">
+                            07
+                        </p>
+
+                        <h2>
+                            PID Speed Control
+                        </h2>
+
+                    </div>
+
+
+                    <div class="project-section-body">
+
+                        <p>
+                            Wheel rotation pulses were counted through an interrupt
+                            and converted into angular velocity. The measured speed
+                            was then compared with a target speed.
+                        </p>
+
+
+                        <div class="code-block">
+
+                            <div class="code-header">
+
+                                <span>
+                                    main.py
+                                </span>
+
+                                <span>
+                                    Closed-loop speed control
+                                </span>
+
+                            </div>
+
+                            <pre><code>Angular_Velocity = (
+    count * angle_per_pulse
+) / (dt_ms / 1000.0)
+
+error = SET_SPEED_DPS - Angular_Velocity
+
+pid_integral += error * dt_s
+
+derivative = (
+    (error - pid_prev_error) / dt_s
+    if dt_s > 0
+    else 0
+)
+
+control = (
+    (KP * error)
+    + (KI * pid_integral)
+    + (KD * derivative)
+)
+
+motor_pwm = int(
+    max(
+        MOTOR_MIN,
+        min(MOTOR_MAX, control)
+    )
+)
+
+motor.duty_u16(motor_pwm)</code></pre>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 LOST TRACK
+            ================================================== -->
+
+            <section class="project-section">
+
+                <div class="project-section-grid">
+
+                    <div class="project-section-title">
+
+                        <p class="section-label">
+                            08
+                        </p>
+
+                        <h2>
+                            Lost-Track Behavior
+                        </h2>
+
+                    </div>
+
+
+                    <div class="project-section-body">
+
+                        <p>
+                            A frame counter tracks how long the system operates
+                            without detecting either lane. After enough failed
+                            frames, the motor command transitions to the configured
+                            brake value.
+                        </p>
+
+
+                        <div class="code-block">
+
+                            <div class="code-header">
+
+                                <span>
+                                    main.py
+                                </span>
+
+                                <span>
+                                    Safety behavior
+                                </span>
+
+                            </div>
+
+                            <pre><code>else:
+
+    blackscreen_count += 1
+
+    if blackscreen_count > 36:
+        motor.duty_ns(mb)</code></pre>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 HARDWARE
+            ================================================== -->
+
+            <section class="project-section">
+
+                <div class="project-section-grid">
+
+                    <div class="project-section-title">
+
+                        <p class="section-label">
+                            09
+                        </p>
+
+                        <h2>
+                            Hardware Integration
+                        </h2>
+
+                    </div>
+
+
+                    <div class="project-section-body">
+
+                        <p>
+                            I designed the vehicle PCB in Altium to integrate
+                            the OpenMV controller, motor-drive electronics,
+                            voltage regulation, MOSFET switching, filtering,
+                            servo connections, and high-current routing.
+                        </p>
+
+
+                        <p>
+                            The software then interacted directly with the
+                            integrated system through PWM motor and servo outputs
+                            and an interrupt-driven wheel-speed signal.
+                        </p>
+
+
+                        <div class="tags">
+
+                            <span>Altium Designer</span>
+                            <span>H-Bridge</span>
+                            <span>MOSFETs</span>
+                            <span>Voltage Regulation</span>
+                            <span>OpenMV</span>
+                            <span>PWM</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SOURCE
+            ================================================== -->
+
+            <section class="project-section">
+
+                <div class="project-section-grid">
+
+                    <div class="project-section-title">
+
+                        <p class="section-label">
+                            10
+                        </p>
+
+                        <h2>
+                            Source Code
+                        </h2>
+
+                    </div>
+
+
+                    <div class="project-section-body">
+
+                        <p>
+                            The surviving autonomous vehicle source code is
+                            available publicly on GitHub.
+                        </p>
+
+
+                        <div class="source-buttons">
+
+                            <a
+                                href="https://github.com/mk-urienza/autonomous-car"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="button primary-button"
+                            >
+                                View Repository
+                            </a>
+
+
+                            <a
+                                href="https://github.com/mk-urienza/autonomous-car/blob/main/main.py"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="button secondary-button"
+                            >
+                                View main.py
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+
+    <footer class="footer">
+
+        <div class="container footer-inner">
+
+            <span>
+                © 2026 MK Urienza
+            </span>
+
+            <a
+                href="../index.html#projects"
+                style="text-decoration: none;"
+            >
+                Back to Projects
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <script src="../script.js"></script>
+
+</body>
+
+</html>
