@@ -1,1 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Biometric Attendance System engineering project by MK Urienza."
+    >
+
+    <title>
+        Biometric Attendance System | MK Urienza
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <header class="site-header">
+
+        <nav class="navbar container">
+
+            <a
+                href="../index.html"
+                class="logo"
+            >
+                MK<span>.</span>
+            </a>
+
+
+            <button
+                id="menuButton"
+                class="menu-button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
+
+
+            <div
+                id="navLinks"
+                class="nav-links"
+            >
+
+                <a href="../index.html#about">
+                    About
+                </a>
+
+                <a href="../index.html#projects">
+                    Projects
+                </a>
+
+                <a href="../index.html#skills">
+                    Skills
+                </a>
+
+                <a href="../index.html#contact">
+                    Contact
+                </a>
+
+
+                <button
+                    id="themeButton"
+                    class="theme-button"
+                    aria-label="Toggle dark mode"
+                >
+                    ◐
+                </button>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+
+    <main class="project-page">
+
+
+        <!-- =====================================================
+             PROJECT HERO
+        ====================================================== -->
+
+        <section class="project-hero">
+
+            <div class="container">
+
+                <a
+                    href="../index.html#projects"
+                    class="back-link"
+                >
+                    ← Back to Projects
+                </a>
+
+
+                <p class="project-category">
+                    EMBEDDED SYSTEMS • IoT
+                </p>
+
+
+                <h1>
+                    Biometric Attendance System
+                </h1>
+
+
+                <p class="project-lead">
+                    An embedded attendance system using a TI CC3200,
+                    fingerprint authentication, IR remote control,
+                    an OLED interface, UART and SPI peripherals,
+                    and AWS IoT-backed attendance records.
+                </p>
+
+
+                <div class="project-meta">
+
+                    <span>
+                        Primary Implementation
+                    </span>
+
+                    <span>
+                        Winter 2025
+                    </span>
+
+                    <span>
+                        C
+                    </span>
+
+                    <span>
+                        CC3200
+                    </span>
+
+                    <span>
+                        AWS IoT
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <div class="container project-content">
+
+
+            <!-- =================================================
+                 OVERVIEW
+            ================================================== -->
+
+            <section class="project-section">
+
+                <div class="project-section-grid">
+
+                    <div class="project-section-title">
+
+                        <p class="section-label">
+                            01
+                        </p>
+
+                        <h2>
+                            Overview
+                        </h2>
+
+                    </div>
+
+
+                    <div class="project-section-body">
+
+                        <p>
+                            The system was designed to allow students to
+                            enroll a fingerprint, associate that fingerprint
+                            with a student ID and name, and later authenticate
+                            themselves to log attendance.
+                        </p>
+
+
+                        <p>
+                            The project combined embedded C, UART fingerprint
+                            communication, SPI display control, GPIO interrupts,
+                            an IR remote user interface, menu-state logic, and
+                            cloud communication through AWS IoT.
+                        </p>
+
+
+                        <div class="architecture">
+
+                            <div class="architecture-box">
+                                IR Remote / Student Input
+                            </div>
+
+                            <div class="architecture-arrow">
+                                ↓
+                            </div>
+
+                            <div class="architecture-box">
+                                CC3200 Application Logic
+                            </div>
+
+                            <div class="architecture-arrow">
+                                ↓
+                            </div>
+
+                            <div class="architecture-box">
+                                Fingerprint Sensor + OLED
+                            </div>
+
+                            <div class="architecture-arrow">
+                                ↓
+                            </div>
+
+                            <div class="architecture-box">
+                                Student Record
+                            </div>
+
+                            <div class="architecture-arrow">
+                                ↓
+                            </div>
+
+                            <div class="architecture-box">
+                                AWS IoT Attendance Logging
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 FINGERPRINT INTERFACE
+            ================================================== -->
+
+            <section class="project-section">
+
+                <div class="project-section-grid">
+
+                    <div class="project-section-title">
+
+                        <p class="section-label">
+                            02
+                        </p>
+
+                        <h2>
+                            Fingerprint Interface
+                        </h2>
+
+                    </div>
+
+
+                    <div class="project-section-body">
+
+                        <p>
+                            The fingerprint library was adapted for the CC3200
+                            application by connecting the library's generic
+                            serial callbacks to the microcontroller's UART
+                            functions.
+                        </p>
+
+
+                        <div class="code-block">
+
+                            <div class="code-header">
+
+                                <span>
+                                    main.c
+                                </span>
+
+                                <span>
+                                    UART abstraction
+                                </span>
+
+                            </div>
+
+                            <pre><code>int MyUARTRead(void) {
+
+    int c =
+        MAP_UARTCharGet(UARTA1_BASE);
+
+    return c;
+}
+
+
+int MyUARTAvail(void) {
+
+    return MAP_UARTCharsAvail(
+        UARTA1_BASE
+    );
+
+}
+
+
+void MyUARTWrite(uint8_t b) {
+
+    MAP_UARTCharPut(
+        UARTA1_BASE,
+        b
+    );
+
+}</code></pre>
+
+                        </div>
+
+
+                        <div class="code-block">
+
+                            <div class="code-header">
+
+                                <span>
+                                    main.c
+                                </span>
+
+                                <span>
+                                    Fingerprint initialization
+                                </span>
+
+                            </div>
+
+                            <pre><code>Adafruit_Fingerprint_Init(
+    &finger,
+    0x00000000
+);
+
+finger.serial_read =
+    MyUARTRead;
+
+finger.serial_available =
+    MyUARTAvail;
+
+finger.serial_write =
+    MyUARTWrite;
+
+finger.delay_ms =
+    MAP_UtilsDelay;
+
+Adafruit_Fingerprint_Begin(
+    &finger,
+    57600
+);</code></pre>
+
+                        </div>
+
+
+                        <div class="explanation-box">
+
+                            <strong>
+                                Porting strategy
+                            </strong>
+
+                            <p>
+                                Instead of depending on the original Arduino
+                                serial implementation, the fingerprint interface
+                                uses function pointers connected to the CC3200
+                                UART hardware.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ENROLLMENT
+            ================================================== -->
+
+            <section class="project-section">
+
+                <div class="project-section-grid">
+
+                    <div class="project-section-title">
+
+                        <p class="section-label">
+                            03
+                        </p>
+
+                        <h2>
+                            Fingerprint Enrollment
+                        </h2>
+
+                    </div>
+
+
+                    <div class="project-section-body">
+
+                        <p>
+                            Enrollment requires two scans of the same finger.
+                            Each image is converted to fingerprint
+                            characteristics, compared, merged into a model,
+                            and stored under an ID.
+                        </p>
+
+
+                        <div class="architecture">
+
+                            <div class="architecture-box">
+                                Capture Finger
+                            </div>
+
+                            <div class="architecture-arrow">
+                                ↓
+                            </div>
+
+                            <div class="architecture-box">
+                                Convert Image to Template Slot 1
+                            </div>
+
+                            <div class="architecture-arrow">
+                                ↓
+                            </div>
+
+                            <div class="architecture-box">
+                                Remove Finger
+                            </div>
+
+                            <div class="architecture-arrow">
+                                ↓
+                            </div>
+
+                            <div class="architecture-box">
+                                Capture Same Finger Again
+                            </div>
+
+                            <div class="architecture-arrow">
+                                ↓
+                            </div>
+
+                            <div class="architecture-box">
+                                Convert to Template Slot 2
+                            </div>
+
+                            <div class="architecture-arrow">
+                                ↓
+                            </div>
+
+                            <div class="architecture-box">
+                                Create Fingerprint Model
+                            </div>
+
+                            <div class="architecture-arrow">
+                                ↓
+                            </div>
+
+                            <div class="architecture-box">
+                                Store Model by Sensor ID
+                            </div>
+
+                        </div>
+
+
+                        <div class="code-block">
+
+                            <div class="code-header">
+
+                                <span>
+                                    main.c
+                                </span>
+
+                                <span>
+                                    Model creation
+                                </span>
+
+                            </div>
+
+                            <pre><code>p = Adafruit_Fingerprint_Image2Tz(
+    &finger,
+    2
+);
+
+if (p != FINGERPRINT_OK) {
+    return (uint8_t)p;
+}
+
+
+p = Adafruit_Fingerprint_CreateModel(
+    &finger
+);
+
+if (p == FINGERPRINT_ENROLLMISMATCH) {
+
+    printf(
+        "Fingerprints did not match\n"
+    );
+
+    return (uint8_t)p;
+}
+
+
+p = Adafruit_Fingerprint_StoreModel(
+    &finger,
+    id
+);</code></pre>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 AUTHENTICATION
+            ================================================== -->
+
+            <section class="project-section">
+
+                <div class="project-section-grid">
+
+                    <div class="project-section-title">
+
+                        <p class="section-label">
+                            04
+                        </p>
+
+                        <h2>
+                            Authentication
+                        </h2>
+
+                    </div>
+
+
+                    <div class="project-section-body">
+
+                        <p>
+                            During attendance logging, the system captures a
+                            fingerprint, converts it into a searchable template,
+                            and compares it against stored fingerprint records.
+                        </p>
+
+
+                        <div class="code-block">
+
+                            <div class="code-header">
+
+                                <span>
+                                    main.c
+                                </span>
+
+                                <span>
+                                    Fingerprint search
+                                </span>
+
+                            </div>
+
+                            <pre><code>while (
+    Adafruit_Fingerprint_GetImage(
+        &finger
+    ) != FINGERPRINT_OK
+) {
+    MAP_UtilsDelay(1000);
+}
+
+
+p = Adafruit_Fingerprint_Image2Tz(
+    &finger,
+    1
+);
+
+
+p = Adafruit_Fingerprint_FingerSearch(
+    &finger,
+    1
+);
+
+
+if (p == FINGERPRINT_OK) {
+
+    printf(
+        "Found ID #%d with confidence %d\n",
+        finger.fingerID,
+        finger.confidence
+    );
+
+}</code></pre>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 IR REMOTE
+            ================================================== -->
+
+            <section class="project-section">
+
+                <div class="project-section-grid">
+
+                    <div class="project-section-title">
+
+                        <p class="section-label">
+                            05
+                        </p>
+
+                        <h2>
+                            IR Remote Decoder
+                        </h2>
+
+                    </div>
+
+
+                    <div class="project-section-body">
+
+                        <p>
+                            The remote-control receiver uses a GPIO interrupt
+                            to measure pulse timing. The pulse length determines
+                            whether each received bit is interpreted as a zero
+                            or a one.
+                        </p>
+
+
+                        <div class="code-block">
+
+                            <div class="code-header">
+
+                                <span>
+                                    main.c
+                                </span>
+
+                                <span>
+                                    Interrupt-driven decoding
+                                </span>
+
+                            </div>
+
+                            <pre><code>void IR_GPIO_ISR(void) {
+
+    unsigned long ulStatus =
+        MAP_GPIOIntStatus(
+            GPIOA2_BASE,
+            true
+        );
+
+    MAP_GPIOIntClear(
+        GPIOA2_BASE,
+        ulStatus
+    );
+
+    current_time =
+        SysTickValueGet();
+
+    if (last_edge_valid) {
+
+        pulse = time_elapse(
+            last_time,
+            current_time
+        );
+
+    }
+
+    last_time =
+        current_time;
+
+    last_edge_valid = 1;
+
+    IR_outflag = 1;
+}</code></pre>
+
+                        </div>
+
+
+                        <div class="code-block">
+
+                            <div class="code-header">
+
+                                <span>
+                                    main.c
+                                </span>
+
+                                <span>
+                                    Bit interpretation
+                                </span>
+
+                            </div>
+
+                            <pre><code>if (
+    pulse >= T_1000US &&
+    pulse <= T_1300US
+) {
+
+    received_data &=
+        ~(1UL << bit_count);
+
+    bit_count++;
+
+}
+
+else if (
+    pulse >= T_2000US &&
+    pulse <= T_2500US
+) {
+
+    received_data |=
+        (1UL << bit_count);
+
+    bit_count++;
+
+}</code></pre>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 MULTI TAP ENTRY
+            ================================================== -->
+
+            <section class="project-section">
+
+                <div class="project-section-grid">
+
+                    <div class="project-section-title">
+
+                        <p class="section-label">
+                            06
+                        </p>
+
+                        <h2>
+                            Multi-Tap Text Entry
+                        </h2>
+
+                    </div>
+
+
+                    <div class="project-section-body">
+
+                        <p>
+                            The number keys on the remote were mapped to groups
+                            of letters, similar to traditional mobile-phone
+                            text input.
+                        </p>
+
+
+                        <div class="code-block">
+
+                            <div class="code-header">
+
+                                <span>
+                                    main.c
+                                </span>
+
+                                <span>
+                                    Character mapping
+                                </span>
+
+                            </div>
+
+                            <pre><code>case 0xED12FB04:
+    charArr = "ABC";
+    break;
+
+case 0xEC13FB04:
+    charArr = "DEF";
+    break;
+
+case 0xEB14FB04:
+    charArr = "GHI";
+    break;
+
+case 0xEA15FB04:
+    charArr = "JKL";
+    break;
+
+case 0xE916FB04:
+    charArr = "MNO";
+    break;
+
+case 0xE817FB04:
+    charArr = "PQRS";
+    break;
+
+case 0xE718FB04:
+    charArr = "TUV";
+    break;
+
+case 0xE619FB04:
+    charArr = "WXYZ";
+    break;</code></pre>
+
+                        </div>
+
+
+                        <p>
+                            Repeated presses of the same button cycle through
+                            the available letters, while a different button
+                            advances to a new character.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 MENU SYSTEM
+            ================================================== -->
+
+            <section class="project-section">
+
+                <div class="project-section-grid">
+
+                    <div class="project-section-title">
+
+                        <p class="section-label">
+                            07
+                        </p>
+
+                        <h2>
+                            Menu State System
+                        </h2>
+
+                    </div>
+
+
+                    <div class="project-section-body">
+
+                        <p>
+                            Application behavior is organized into menu states
+                            representing student actions, enrollment, logging,
+                            administration, and the main menu.
+                        </p>
+
+
+                        <div class="code-block">
+
+                            <div class="code-header">
+
+                                <span>
+                                    main.c
+                                </span>
+
+                                <span>
+                                    Application modes
+                                </span>
+
+                            </div>
+
+                            <pre><code>#define MAIN_MODE     1
+#define STUDENT_MODE  2
+#define ADMIN_MODE    3
+#define LOG_MODE      4
+#define ENROLL_MODE   5</code></pre>
+
+                        </div>
+
+
+                        <div class="code-block">
+
+                            <div class="code-header">
+
+                                <span>
+                                    main.c
+                                </span>
+
+                                <span>
+                                    Main control loop
+                                </span>
+
+                            </div>
+
+                            <pre><code>while (1) {
+
+    if (MENU_MODE == MAIN_MODE)
+        MainMenu();
+
+    if (MENU_MODE == STUDENT_MODE)
+        StudentMenu();
+
+    if (MENU_MODE == LOG_MODE)
+        LogMenu();
+
+    if (MENU_MODE == ENROLL_MODE)
+        EnrollMenu();
+
+    if (MENU_MODE == ADMIN_MODE)
+        AdminMenu();
+
+}</code></pre>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ATTENDANCE
+            ================================================== -->
+
+            <section class="project-section">
+
+                <div class="project-section-grid">
+
+                    <div class="project-section-title">
+
+                        <p class="section-label">
+                            08
+                        </p>
+
+                        <h2>
+                            Attendance Logging
+                        </h2>
+
+                    </div>
+
+
+                    <div class="project-section-body">
+
+                        <p>
+                            A student first enters a school ID. The system
+                            searches the local student records, requests
+                            fingerprint authentication, marks the student as
+                            logged in, and then sends the updated record to
+                            the cloud service.
+                        </p>
+
+
+                        <div class="code-block">
+
+                            <div class="code-header">
+
+                                <span>
+                                    main.c
+                                </span>
+
+                                <span>
+                                    Successful authentication
+                                </span>
+
+                            </div>
+
+                            <pre><code>if (p == FINGERPRINT_OK) {
+
+    strcpy(
+        student[index].logged,
+        "yes"
+    );
+
+    http_post(
+        lRetVal,
+        index
+    );
+
+    http_get(
+        lRetVal,
+        index
+    );
+
+    Outstr("Logged in.");
+
+}</code></pre>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 CLOUD
+            ================================================== -->
+
+            <section class="project-section">
+
+                <div class="project-section-grid">
+
+                    <div class="project-section-title">
+
+                        <p class="section-label">
+                            09
+                        </p>
+
+                        <h2>
+                            AWS IoT Communication
+                        </h2>
+
+                    </div>
+
+
+                    <div class="project-section-body">
+
+                        <p>
+                            Student information is formatted as JSON and
+                            transmitted through an encrypted connection to
+                            AWS IoT.
+                        </p>
+
+
+                        <div class="code-block">
+
+                            <div class="code-header">
+
+                                <span>
+                                    main.c
+                                </span>
+
+                                <span>
+                                    Student JSON structure
+                                </span>
+
+                            </div>
+
+                            <pre><code>#define STUDENT_JSON_FMT \
+    "{" \
+      "\"state\": {" \
+          "\"desired\": {" \
+              "\"SchoolID\":\"%s\"," \
+              "\"Name\":\"%s\"," \
+              "\"timestamp\":\"%s\"," \
+              "\"logged\":\"%s\"" \
+          "}" \
+      "}" \
+    "}"</code></pre>
+
+                        </div>
+
+
+                        <div class="explanation-box">
+
+                            <strong>
+                                Embedded-to-cloud integration
+                            </strong>
+
+                            <p>
+                                The CC3200 does not only authenticate the
+                                fingerprint locally. The application also
+                                creates a structured attendance record and
+                                communicates it to the remote IoT service.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 LIBRARY PORTING
+            ================================================== -->
+
+            <section class="project-section">
+
+                <div class="project-section-grid">
+
+                    <div class="project-section-title">
+
+                        <p class="section-label">
+                            10
+                        </p>
+
+                        <h2>
+                            Library Integration
+                        </h2>
+
+                    </div>
+
+
+                    <div class="project-section-body">
+
+                        <p>
+                            The project includes supporting Adafruit and Texas
+                            Instruments library code. Rather than presenting
+                            those libraries as original work, the engineering
+                            contribution was the adaptation and integration of
+                            those interfaces into the CC3200 application.
+                        </p>
+
+
+                        <p>
+                            The fingerprint driver uses CC3200 UART callbacks,
+                            while the OLED graphics and device initialization
+                            code are integrated into the complete menu and
+                            attendance workflow.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SOURCE
+            ================================================== -->
+
+            <section class="project-section">
+
+                <div class="project-section-grid">
+
+                    <div class="project-section-title">
+
+                        <p class="section-label">
+                            11
+                        </p>
+
+                        <h2>
+                            Source Code
+                        </h2>
+
+                    </div>
+
+
+                    <div class="project-section-body">
+
+                        <p>
+                            The surviving project source is available publicly
+                            on GitHub, including the primary application,
+                            fingerprint interface, OLED support, UART support,
+                            and pin configuration files.
+                        </p>
+
+
+                        <div class="source-buttons">
+
+                            <a
+                                href="https://github.com/mk-urienza/biometric-attendance"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="button primary-button"
+                            >
+                                View Repository
+                            </a>
+
+
+                            <a
+                                href="https://github.com/mk-urienza/biometric-attendance/blob/main/main.c"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="button secondary-button"
+                            >
+                                View main.c
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+
+    <footer class="footer">
+
+        <div class="container footer-inner">
+
+            <span>
+                © 2026 MK Urienza
+            </span>
+
+            <a
+                href="../index.html#projects"
+                style="text-decoration: none;"
+            >
+                Back to Projects
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <script src="../script.js"></script>
+
+</body>
+
+</html>
